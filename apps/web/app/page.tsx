@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AuthNav } from "@/components/AuthNav";
 
 export default function Home() {
   return (
@@ -12,13 +13,11 @@ export default function Home() {
           height={36}
           priority
         />
-        <nav className="flex items-center gap-6 text-sm font-medium text-ink">
-          <a href="#how" className="hover:text-signal-go">
+        <nav className="flex items-center gap-5 text-sm font-medium text-ink">
+          <a href="#how" className="hidden sm:inline hover:text-signal-go">
             How it works
           </a>
-          <Link href="/evaluate" className="hover:text-signal-go">
-            Try it
-          </Link>
+          <AuthNav />
           <Link
             href="/evaluate"
             className="rounded-lg bg-ink px-4 py-2 text-white hover:bg-ink-soft"

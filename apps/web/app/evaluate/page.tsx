@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import type { IssueKey } from "@wrenchly/types";
 import { Stepper } from "./Stepper";
 import { StepVehicle, isVehicleStepValid } from "./StepVehicle";
@@ -108,30 +106,13 @@ export default function EvaluatePage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-slate-50">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-4 py-5 sm:px-6">
-        <Link href="/">
-          <Image
-            src="/brand/wrenchly-wordmark.svg"
-            alt="Wrenchly"
-            width={150}
-            height={30}
-            priority
-          />
-        </Link>
-        <Link
-          href="/"
-          className="text-sm font-medium text-slate-600 hover:text-ink"
-        >
-          ← Home
-        </Link>
-      </header>
-
+    <main>
       <section className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
         {response ? (
           <Verdict
             result={response.result}
             askingPrice={response.input.askingPrice}
+            dealId={response.dealId}
             onReset={reset}
           />
         ) : (
