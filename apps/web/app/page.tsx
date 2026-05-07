@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,15 +16,15 @@ export default function Home() {
           <a href="#how" className="hover:text-signal-go">
             How it works
           </a>
-          <a href="#pricing" className="hover:text-signal-go">
-            Pricing
-          </a>
-          <a
-            href="#waitlist"
+          <Link href="/evaluate" className="hover:text-signal-go">
+            Try it
+          </Link>
+          <Link
+            href="/evaluate"
             className="rounded-lg bg-ink px-4 py-2 text-white hover:bg-ink-soft"
           >
-            Get early access
-          </a>
+            Run an evaluation
+          </Link>
         </nav>
       </header>
 
@@ -42,6 +43,21 @@ export default function Home() {
           profit range, a parts-out estimate, and the price you should walk away
           at.
         </p>
+
+        <div className="mt-8 flex justify-center gap-3">
+          <Link
+            href="/evaluate"
+            className="rounded-lg bg-signal-go px-6 py-3 text-base font-semibold text-white shadow-sm hover:brightness-95"
+          >
+            Run an evaluation
+          </Link>
+          <a
+            href="#waitlist"
+            className="rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-ink hover:border-slate-400"
+          >
+            Join waitlist
+          </a>
+        </div>
 
         <form
           id="waitlist"
