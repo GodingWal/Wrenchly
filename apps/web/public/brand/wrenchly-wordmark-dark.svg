@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" role="img" aria-label="Wrenchly">
+  <title>Wrenchly</title>
+  <rect width="64" height="64" rx="14" fill="#0F172A" stroke="#22C55E" stroke-width="1.5"/>
+  <path
+    d="M16 36 L26 46 L48 22"
+    fill="none"
+    stroke="#22C55E"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M48 22
+       a7 7 0 1 1 -2 -2
+       l-5 5
+       a4 4 0 0 0 2 2
+       z"
+    fill="#22C55E"
+  />
+  <circle cx="51" cy="19" r="3" fill="#0F172A"/>
+
+  <text
+    x="80"
+    y="44"
+    font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Inter, sans-serif"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="#F8FAFC"
+  >Wrenchly</text>
+</svg>

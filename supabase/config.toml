@@ -1,0 +1,7 @@
+# Supabase project config — keep this synced with your Supabase project.
+# Run `supabase init` locally before using `supabase db push`.
+
+project_id = "wrenchly"
+
+[db]
+major_version = 15
