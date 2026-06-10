@@ -23,4 +23,6 @@ export type EvaluateResponse = {
   input: DealInput;
   result: EngineOutput;
   contextSource: "placeholder" | "live";
+  /** Set when the deal was persisted (i.e. the user was signed in). */
+  dealId: string | null;
 };

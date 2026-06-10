@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { EngineOutput, Verdict as VerdictKey } from "@wrenchly/types";
 
 const VERDICT_META: Record<
@@ -39,10 +40,12 @@ const VERDICT_META: Record<
 export function Verdict({
   result,
   askingPrice,
+  dealId,
   onReset,
 }: {
   result: EngineOutput;
   askingPrice: number;
+  dealId: string | null;
   onReset: () => void;
 }) {
   const meta = VERDICT_META[result.verdict];
@@ -110,20 +113,55 @@ export function Verdict({
         <ListCard title="Risks & unknowns" items={result.risks} tone="stop" />
       </div>
 
-      <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-        <span>
-          Numbers based on placeholder market data. Live comps and repair pricing arrive in Phase 3.
-        </span>
-        <div className="flex gap-2">
-          <button
-            type="button"
-            onClick={onReset}
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 font-medium text-ink hover:border-slate-400"
-          >
-            New evaluation
-          </button>
+      {dealId ? (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-signal-go/30 bg-signal-go/5 p-4 text-sm">
+          <span className="text-ink">
+            <span className="font-semibold text-signal-go">Saved</span> to your
+            deal log.
+          </span>
+          <div className="flex gap-2">
+            <Link
+              href="/deals"
+              className="rounded-lg border border-slate-300 bg-white px-4 py-2 font-medium text-ink hover:border-slate-400"
+            >
+              View deals
+            </Link>
+            <button
+              type="button"
+              onClick={onReset}
+              className="rounded-lg bg-ink px-4 py-2 font-semibold text-white hover:bg-ink-soft"
+            >
+              New evaluation
+            </button>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm">
+          <span className="text-slate-700">
+            <span className="font-semibold text-ink">Sign in</span> to save this
+            evaluation to your log.
+          </span>
+          <div className="flex gap-2">
+            <Link
+              href="/sign-in?next=/deals"
+              className="rounded-lg border border-slate-300 bg-white px-4 py-2 font-medium text-ink hover:border-slate-400"
+            >
+              Sign in
+            </Link>
+            <button
+              type="button"
+              onClick={onReset}
+              className="rounded-lg bg-ink px-4 py-2 font-semibold text-white hover:bg-ink-soft"
+            >
+              New evaluation
+            </button>
+          </div>
+        </div>
+      )}
+
+      <p className="text-center text-xs text-slate-500">
+        Numbers based on placeholder market data. Live comps and repair pricing arrive in Phase 3.
+      </p>
     </div>
   );
 }
